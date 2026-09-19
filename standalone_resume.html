@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnu K.R | Digital Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        header {
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content h1 span {
+            color: var(--primary);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .main-content {
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .summary p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.3rem;
+        }
+
+        .item-header h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .item-sub {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .skill-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-group h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+            .contact-grid {
+                justify-items: center;
+            }
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            .print-btn { display: none; }
+            body { padding: 0; background: white; color: black; }
+            .resume-container { box-shadow: none; border: none; max-width: 100%; border-radius: 0; }
+            :root { --bg: #fff; --card-bg: #fff; --text: #000; --text-muted: #444; --border: #ddd; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <header>
+            <div class="header-content">
+                <h1>Vishnu <span>K.R</span></h1>
+                <p class="tagline">Software Engineer | Full Stack Developer</p>
+                <div class="contact-grid">
+                    <div class="contact-item">📞 +91 9946524862</div>
+                    <div class="contact-item">📧 vishnu.kr2050@gmail.com</div>
+                    <div class="contact-item">📍 Ernakulam, Kerala, India</div>
+                    <div class="contact-item">🔗 <a href="https://linkedin.com/in/vishnu-kr2050/" target="_blank">LinkedIn</a></div>
+                    <div class="contact-item">💻 <a href="https://github.com/VishnuKR-Official" target="_blank">GitHub</a></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="left-col">
+                <section class="summary">
+                    <h2>Professional Summary</h2>
+                    <p>
+                        MBA graduate and former Banking Professional who transitioned into software engineering. 
+                        Driven by a passion for logical problem-solving and building scalable technical solutions. 
+                        Committed to delivering high-quality code and continuous learning in modern web technologies.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Experience</h2>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <h3>Branch Sales & Service Executive</h3>
+                            <span class="item-date">08/2024 – Present</span>
+                        </div>
+                        <p class="item-sub">Karur Vysya Bank LTD, Ernakulam</p>
+                        <ul>
+                            <li>Managed financial portfolios and high-value customer relationships.</li>
+                            <li>Ensured strict compliance with banking regulations and operational standards.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <h3>Marketing Intern</h3>
+                            <span class="item-date">2023</span>
+                        </div>
+                        <p class="item-sub">Le Meridien, Kochi</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Selected Projects</h2>
+                    <div class="project-item">
+                        <div class="item-header">
+                            <h3>Amazon Clone</h3>
+                            <a href="https://github.com/VishnuKR-Official" class="item-date" style="text-decoration: none;">View Code</a>
+                        </div>
+                        <p class="item-sub">HTML, CSS, Static Site</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">A high-fidelity replica of Amazon.com demonstrating advanced layout and styling techniques.</p>
+                    </div>
+                    <div class="project-item">
+                        <div class="item-header">
+                            <h3>Java Calculator</h3>
+                        </div>
+                        <p class="item-sub">Java, OOP</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Functional console-based application implementing OOP principles and core logic building.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Education</h2>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <h3>MBA (Marketing & Finance)</h3>
+                            <span class="item-date">2022 – 2024</span>
+                        </div>
+                        <p class="item-sub">Kochi Business School | MG University (67%)</p>
+                    </div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <h3>BCom Computer Applications</h3>
+                            <span class="item-date">2019 – 2022</span>
+                        </div>
+                        <p class="item-sub">Saswathikananda College (72%)</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-col">
+                <section>
+                    <h2>Core Skills</h2>
+                    <div class="skill-group">
+                        <h4>Languages</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">JavaScript (ES6+)</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h4>Web Tech</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h4>Tools</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Excel Specialist</span>
+                        </div>
+                    </div> section>
+
+                <section>
+                    <h2>Achievements</h2>
+                    <ul>
+                        <li>Team Lead - Kombatts 2k24</li>
+                        <li>Organizer - Job Mela 2K23</li>
+                        <li>Certified Excel Specialist</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Languages</h2>
+                    <div class="skill-tags">
+                        <span class="skill-tag">English</span>
+                        <span class="skill-tag">Malayalam</span>
+                        <span class="skill-tag">Tamil</span>
+                        <span class="skill-tag">Hindi</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">
+        <span>🖨️</span> Save as PDF
+    </button>
+
+</body>
+</html>
