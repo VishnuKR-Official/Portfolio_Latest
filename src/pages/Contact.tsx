@@ -45,8 +45,8 @@ const Contact: React.FC = () => {
                 SERVICE_ID,
                 TEMPLATE_ID,
                 {
-                    from_name: formData.name,
-                    from_email: formData.email,
+                    name: formData.name,
+                    email: formData.email,
                     subject: formData.subject || 'New Portfolio Inquiry',
                     message: formData.message,
                 },
