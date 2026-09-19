@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Layers } from 'lucide-react';
+import { Github } from 'lucide-react';
 import userManagementImg from '../assets/projects/usermanagement.png';
 import nodeAuthImg from '../assets/projects/node_Authentication.jpg';
 import trawellImg from '../assets/projects/Trawell.jpg';
