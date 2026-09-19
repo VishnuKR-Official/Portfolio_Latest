@@ -37,9 +37,9 @@ const Contact: React.FC = () => {
             // 3. Create a template -> Get TEMPLATE_ID
             // 4. Go to Account > API Keys -> Get PUBLIC_KEY
 
-            const SERVICE_ID = 'YOUR_SERVICE_ID';   // Example: service_x29s3d
-            const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Example: template_8sh29s
-            const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';   // Example: user_82h29s...
+            const SERVICE_ID = 'service_3kegl6h';
+            const TEMPLATE_ID = 'template_z82x6ec';
+            const PUBLIC_KEY = 'q3js1XcnqNymPjJzg';
 
             emailjs.send(
                 SERVICE_ID,
